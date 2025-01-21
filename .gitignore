@@ -70,5 +70,13 @@ Saved/*
 Intermediate/*
 Plugins/**/Intermediate/*
 
+PhotonTrial5/Intermediate/ProjectFiles/UE5.vcxproj
+PhotonTrial5/Source/Photon/photon-windows-sdk_v5-0-7-3.7z
+
+
+PhotonTrial5/Intermediate/
+PhotonTrial5/Saved/
+PhotonTrial5/Source/Photon/
+
 # Cache files for the editor to use
 DerivedDataCache/*
