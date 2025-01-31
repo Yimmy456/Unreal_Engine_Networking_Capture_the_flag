@@ -16,12 +16,18 @@ class PHOTONTRIAL5_API UUserInterfaceFunctionLibrary : public UBlueprintFunction
 
 public:
 
-	UFUNCTION(BlueprintCallable, BlueprintPure)
-		static void SetUIElementPositionBasedOnScaleInXAxis(FVector2D _sizeInput, float _sizeConstantInput, float _additionalMovements, float& _output);
+	UFUNCTION(BlueprintCallable, BlueprintPure, meta = (DisplayName = "Set the UI Element Position Based On Scale In the X-Axis (Float)"))
+		static void SetUIElementPositionBasedOnScaleInXAxisFloat(FVector2D _sizeInput, float _sizeConstantInput, float _additionalMovementInput, float& _output);
 
-	UFUNCTION(BlueprintCallable, BlueprintPure)
-		static void SetUIElementPositionBasedOnScaleInYAxis(FVector2D _sizeInput, float _sizeConstantInput, float _additionalMovements, float& _output);
+	UFUNCTION(BlueprintCallable, BlueprintPure, meta = (DisplayName = "Set the UI Element Position Based On Scale In the Y-Axis (Float)"))
+		static void SetUIElementPositionBasedOnScaleInYAxisFloat(FVector2D _sizeInput, float _sizeConstantInput, float _additionalMovementInput, float& _output);
 
-	UFUNCTION(BlueprintCallable, BlueprintPure)
-		static void SetUIElementPositionBasedOnScale(FVector2D _sizeInput, float _sizeConstantInput, FVector2D _additionalMovements, FVector2D& _output);
+	UFUNCTION(BlueprintCallable, BlueprintPure, meta = (DisplayName = "Set the UI Element Position Based On Scale In the X-Axis (Vector2D)"))
+		static void SetUIElementPositionBasedOnScaleInXAxisVector2D(FVector2D _sizeInput, float _sizeConstantInput, float _additionalMovementInput, FVector2D& _output);
+
+	UFUNCTION(BlueprintCallable, BlueprintPure, meta = (DisplayName = "Set the UI Element Position Based On Scale In the Y-Axis (Vector2D)"))
+		static void SetUIElementPositionBasedOnScaleInYAxisVector2D(FVector2D _sizeInput, float _sizeConstantInput, float _additionalMovementInput, FVector2D& _output);
+
+	UFUNCTION(BlueprintCallable, BlueprintPure, meta = (DisplayName = "Set the UI Element Position Based On Scale"))
+		static void SetUIElementPositionBasedOnScale(FVector2D _sizeInput, float _sizeConstantInput, FVector2D _additionalMovementsInput, FVector2D& _output);
 };

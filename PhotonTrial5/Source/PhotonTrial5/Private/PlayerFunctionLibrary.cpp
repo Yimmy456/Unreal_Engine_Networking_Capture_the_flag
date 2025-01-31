@@ -3,55 +3,6 @@
 
 #include "PlayerFunctionLibrary.h"
 
-void UPlayerFunctionLibrary::MovePlayer(APawn* _player, USceneComponent* _comp, float _speed, float _angle)
-{
-	if (_angle == -181.0f)
-	{
-		return;
-	}
-
-	//_player->SetReplicateMovement(true);
-
-	FVector _forwardDirection = _comp->GetForwardVector();
-
-	_forwardDirection.Z = 0.0f;
-
-	_forwardDirection = _forwardDirection.RotateAngleAxis(_angle, FVector::UpVector);
-
-	_forwardDirection.X = _forwardDirection.X * _speed;
-
-	_forwardDirection.Y = _forwardDirection.Y * _speed;
-
-	FVector _pos = _player->GetActorLocation();
-
-	_pos = _pos + _forwardDirection;
-
-	_player->SetActorLocation(_pos);
-}
-
-void UPlayerFunctionLibrary::RotatePlayer(USceneComponent* _avatar, USceneComponent* _comp, bool _strafe, float _angle)
-{
-	if (_angle == -181.0f)
-	{
-		return;
-	}
-
-	//_avatar->SetIsReplicated(true);
-
-	FVector _forwardDirection = _comp->GetForwardVector();
-
-	_forwardDirection.Z = 0.0f;
-
-	if (!_strafe)
-	{
-		_forwardDirection = _forwardDirection.RotateAngleAxis(_angle, FVector::UpVector);
-	}
-
-	FRotator _r = _forwardDirection.Rotation();
-
-	_avatar->SetRelativeRotation(_r);
-}
-
 void UPlayerFunctionLibrary::RotateObject(USceneComponent* _comp, float _speed)
 {
 	FRotator _r;
@@ -126,7 +77,7 @@ FVector UPlayerFunctionLibrary::GetAddedLocation(USceneComponent* _comp, float _
 	return _forwardDirection;
 }
 
-void UPlayerFunctionLibrary::MovePlayer2(APawn* _player, FVector _rot, float _speed, float _angle)
+void UPlayerFunctionLibrary::MovePlayer(APawn* _player, FVector _rot, float _speed, float _angle)
 {
 	if (!(_angle >= 0.0f && _angle < 360.0f))
 	{
@@ -163,7 +114,7 @@ FVector UPlayerFunctionLibrary::GetForwardRot(USceneComponent* _comp, float _ang
 	return _forwardDirection;
 }
 
-void UPlayerFunctionLibrary::RotatePlayer2(USceneComponent* _comp, FRotator _rot, float _angle)
+void UPlayerFunctionLibrary::RotatePlayer(USceneComponent* _comp, FRotator _rot, float _angle)
 {
 	if (!(_angle >= 0.0f && _angle < 360.0f) || _angle == -181.0f)
 	{

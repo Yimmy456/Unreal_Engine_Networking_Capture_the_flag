@@ -3,21 +3,47 @@
 
 #include "UserInterfaceFunctionLibrary.h"
 
-void UUserInterfaceFunctionLibrary::SetUIElementPositionBasedOnScaleInXAxis(FVector2D _sizeInput, float _sizeConstantInput, float _additionalMovement, float& _output)
+void UUserInterfaceFunctionLibrary::SetUIElementPositionBasedOnScaleInXAxisFloat(FVector2D _sizeInput, float _sizeConstantInput, float _additionalMovementInput, float& _output)
 {
 	float _v = (_sizeInput.X / 2.0f) - ((_sizeInput.X * _sizeConstantInput) / 2.0f);
 
-	_output = _v + _additionalMovement;
+	_output = _v + _additionalMovementInput;
 }
 
-void UUserInterfaceFunctionLibrary::SetUIElementPositionBasedOnScaleInYAxis(FVector2D _sizeInput, float _sizeConstantInput, float _additionalMovement, float& _output)
+void UUserInterfaceFunctionLibrary::SetUIElementPositionBasedOnScaleInYAxisFloat(FVector2D _sizeInput, float _sizeConstantInput, float _additionalMovementInput, float& _output)
 {
 	float _v = (_sizeInput.Y / 2.0f) - ((_sizeInput.Y * _sizeConstantInput) / 2.0f);
 
-	_output = _v + _additionalMovement;
+	_output = _v + _additionalMovementInput;
 }
 
-void UUserInterfaceFunctionLibrary::SetUIElementPositionBasedOnScale(FVector2D _sizeInput, float _sizeConstantInput, FVector2D _additionalMovements, FVector2D& _output)
+void UUserInterfaceFunctionLibrary::SetUIElementPositionBasedOnScaleInXAxisVector2D(FVector2D _sizeInput, float _sizeConstantInput, float _additionalMovementInput, FVector2D& _output)
+{
+	float _v = (_sizeInput.X / 2.0f) - ((_sizeInput.X * _sizeConstantInput) / 2.0f);
+
+	FVector2D _v2D;
+
+	_v2D.X = _v + _additionalMovementInput;
+
+	_v2D.Y = 0.0f;
+
+	_output = _v2D;
+}
+
+void UUserInterfaceFunctionLibrary::SetUIElementPositionBasedOnScaleInYAxisVector2D(FVector2D _sizeInput, float _sizeConstantInput, float _additionalMovementInput, FVector2D& _output)
+{
+	float _v = (_sizeInput.Y / 2.0f) - ((_sizeInput.Y * _sizeConstantInput) / 2.0f);
+
+	FVector2D _v2D;
+
+	_v2D.X = 0.0f;
+
+	_v2D.Y = _v + _additionalMovementInput;
+
+	_output = _v2D;
+}
+
+void UUserInterfaceFunctionLibrary::SetUIElementPositionBasedOnScale(FVector2D _sizeInput, float _sizeConstantInput, FVector2D _additionalMovementsInput, FVector2D& _output)
 {
 	FVector2D _v;
 
@@ -25,5 +51,5 @@ void UUserInterfaceFunctionLibrary::SetUIElementPositionBasedOnScale(FVector2D _
 
 	_v.Y = (_sizeInput.Y / 2.0f) - ((_sizeInput.Y * _sizeConstantInput) / 2.0f);
 
-	_output = _v + _additionalMovements;
+	_output = _v + _additionalMovementsInput;
 }
