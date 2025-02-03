@@ -142,3 +142,18 @@ FRotator UPlayerFunctionLibrary::GetLookingDirection(USceneComponent* _comp, boo
 
 	return _forwardDirection.Rotation();
 }
+
+void UPlayerFunctionLibrary::SetColorValue(FLinearColor _colorInput, float _valueInput, bool _multiplayByCurrentValueInput, float _alphaInput, FLinearColor& _colorOutput)
+{
+	FLinearColor _hsv = _colorInput.LinearRGBToHSV();
+
+	//_hsv.A = _colorInput;
+
+	float _currentV = _multiplayByCurrentValueInput ? _hsv.B : 1.0f;
+
+	_colorOutput.B = _valueInput * _currentV; //The value the 'B' (blue) variable becomes the value of 'V' (value) after conversion from 'RGB' to 'HSV'.
+
+	_colorOutput.A = _alphaInput;
+
+	_colorOutput = _hsv;
+}

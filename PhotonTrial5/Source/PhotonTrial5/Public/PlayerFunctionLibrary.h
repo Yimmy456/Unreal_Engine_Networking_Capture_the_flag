@@ -37,4 +37,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 		static FRotator GetLookingDirection(USceneComponent* _comp, bool _strafe, float _angle);
 
+	UFUNCTION(BlueprintPure)
+	static void SetColorValue(FLinearColor _colorInput, float _valueInput, bool _multiplayByCurrentValueInput, float _alphaInput, FLinearColor& _colorOutput);
+
 };
